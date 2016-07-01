@@ -27,7 +27,50 @@ public class PlayerControl : MonoBehaviour {
     public Transform CamHolder = null;
     public Transform Head = null;
 
+    private Vector3 interactPos = Vector3.zero;
+    private Quaternion interactRot = Quaternion.identity;
+
     public PointOfInterest Interest = null;
+
+    public bool Interacting {
+        get {
+            return _interacting;
+        }
+        set {
+            _interacting = value;
+            if (Interest != null && _interacting == true) {
+                Transform t = Head;
+                Transform i = Interest.transform;
+                bool left = mainCam.WorldToScreenPoint(i.position).x < mainCam.pixelWidth / 2;
+                Vector3 dirToInterest = (t.position - i.position);
+                float dist = dirToInterest.magnitude;
+                float halfDist = dist / 2;
+                dirToInterest.Normalize();
+                Transform p = new GameObject().transform;
+                Vector3 midPoint = (t.position + i.position) / 2;
+                p.position = midPoint;
+                p.LookAt(i);
+                p.position += p.right * (halfDist * 1.5f) * (left ? -1 : 1);
+                p.RotateAround(midPoint, p.up, 70f * (left ? -1 : 1));
+                p.LookAt(midPoint);
+                interactPos = p.position;
+                interactRot = p.rotation;
+                Destroy(p.gameObject);
+            }
+        }
+    }
+    private bool _interacting = false;
+
+    public bool TurningEnabled {
+        get {
+            return TurningController.enabled;
+        }
+        set {
+            TurningController.enabled = value;
+        }
+    }
+
+    private Transform interestDir = null;
 
     private List<PointOfInterest> pointsOfInterest = new List<PointOfInterest>();
 
@@ -57,12 +100,18 @@ public class PlayerControl : MonoBehaviour {
 
         upLook += TurningController.Delta.y * 2;
         upLook = Mathf.Clamp(upLook, -1.0f, 1.0f);
-        if(upLook > 0) {
-            mainCam.transform.position = Vector3.Lerp(MidCamera.position, LowCamera.position, upLook);
-            mainCam.transform.rotation = Quaternion.Lerp(MidCamera.rotation, LowCamera.rotation, upLook);
+        if (Interacting == false) {
+            if (upLook > 0) {
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, LowCamera.position, upLook), Time.deltaTime * 5f);
+                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, LowCamera.rotation, upLook), Time.deltaTime * 5f);
+
+            } else {
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, HighCamera.position, Mathf.Abs(upLook)), Time.deltaTime * 5f);
+                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, HighCamera.rotation, Mathf.Abs(upLook)), Time.deltaTime * 5f);
+            }
         } else {
-            mainCam.transform.position = Vector3.Lerp(MidCamera.position, HighCamera.position, Mathf.Abs(upLook));
-            mainCam.transform.rotation = Quaternion.Lerp(MidCamera.rotation, HighCamera.rotation, Mathf.Abs(upLook));
+            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, interactPos, Time.deltaTime * 5f);
+            mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, interactRot, Time.deltaTime * 5f);
         }
 
         Vector3 InputVec = new Vector3(InputController.Value.x, 0, InputController.Value.y);

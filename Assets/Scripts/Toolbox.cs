@@ -11,20 +11,24 @@ public class Toolbox : Singleton<Toolbox> {
 
     private GameObject MessagePrefab;
 
+    public PlayerControl Player;
+
     void Awake () {
-        MessagePrefab = Resources.Load("prefabs/MessagePanel", typeof(GameObject)) as GameObject;
-        canvas = FindObjectOfType<Canvas>();
+        MessagePrefab = Resources.Load("prefabs/ui/MessagePanel", typeof(GameObject)) as GameObject;
+        canvas = GameObject.Find("canvas_ui").GetComponent<Canvas>();
         InputControl = FindObjectOfType<InputControlBase>();
+        Player = FindObjectOfType<PlayerControl>();
     }
 
-    public void ShowMessage(string message) {
+    public void ShowMessage(string message, PointOfInterest p = null, bool Focus = false) {
         InputControl.Enabled = false;
+        if (p != null) Player.Interest = p;
+        if (Focus) Player.Interacting = true;
         GameObject newMsg = Instantiate(MessagePrefab) as GameObject;
-        newMsg.transform.parent = canvas.transform;
-        Text text = newMsg.GetComponentInChildren<Text>();
-        text.text = message;
+        newMsg.transform.SetParent(canvas.transform, false);
+        newMsg.GetComponent<MessageControl>().Text = message;
         Animator anim = newMsg.GetComponent<Animator>();
-        anim.SetTrigger("show");
+        anim.SetTrigger("open");
     }
 
     public static T RegisterComponent<T> () where T: Component {
