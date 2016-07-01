@@ -24,6 +24,7 @@ public class PlayerControl : Entity {
     public Transform LowCamera = null;
     public Transform MidCamera = null;
     public Transform HighCamera = null;
+    public Transform ActionCamera = null;
     public Transform CamHolder = null;
     public Transform Head = null;
 
@@ -79,12 +80,34 @@ public class PlayerControl : Entity {
             PlayerHealthBar.SetBool("showing", value);
         }
     }
+    public Targettable Target {
+        get {
+            return _target;
+        }
+        set {
+            _target = value;
+            CameraLock = true;
+        }
+    }
+    private Targettable _target;
+    public bool Targetting {
+        get {
+            return Target != null;
+        }
+        set {
+            if (!value) {
+                Target = null;
+                CameraLock = false;
+            }
+        }
+    }
 
     private Transform interestDir = null;
-
     private List<PointOfInterest> pointsOfInterest = new List<PointOfInterest>();
 
     private InputControlBase inputControlBase;
+
+    public bool CameraLock = false;
 
 	// Use this for initialization
 	void Start () {
@@ -108,55 +131,90 @@ public class PlayerControl : Entity {
 	
 	// Update is called once per frame
 	void Update () {
-        CamHolder.Rotate(new Vector3(0f, TurningController.Delta.x) * 360f);
+        // Directly related to camera look position
+        if (!CameraLock) {
+            CamHolder.Rotate(new Vector3(0f, TurningController.Delta.x) * 360f);
 
-        upLook += TurningController.Delta.y * 2;
-        upLook = Mathf.Clamp(upLook, -1.0f, 1.0f);
-        if (Interacting == false) {
-            if (upLook > 0) {
-                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, LowCamera.position, upLook), Time.deltaTime * 5f);
-                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, LowCamera.rotation, upLook), Time.deltaTime * 5f);
+            upLook += TurningController.Delta.y * 2;
+            upLook = Mathf.Clamp(upLook, -1.0f, 1.0f);
+            if (Interacting == false) {
+                if (upLook > 0) {
+                    mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, LowCamera.position, upLook), Time.deltaTime * 5f);
+                    mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, LowCamera.rotation, upLook), Time.deltaTime * 5f);
 
+                } else {
+                    mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, HighCamera.position, Mathf.Abs(upLook)), Time.deltaTime * 5f);
+                    mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, HighCamera.rotation, Mathf.Abs(upLook)), Time.deltaTime * 5f);
+                }
             } else {
-                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, Vector3.Lerp(MidCamera.position, HighCamera.position, Mathf.Abs(upLook)), Time.deltaTime * 5f);
-                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Lerp(MidCamera.rotation, HighCamera.rotation, Mathf.Abs(upLook)), Time.deltaTime * 5f);
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, interactPos, Time.deltaTime * 5f);
+                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, interactRot, Time.deltaTime * 5f);
             }
-        } else {
-            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, interactPos, Time.deltaTime * 5f);
-            mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, interactRot, Time.deltaTime * 5f);
+        } else if (Targetting) {
+            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, ActionCamera.position, Time.deltaTime * 5f);
+            mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, Quaternion.Slerp(ActionCamera.rotation, Quaternion.LookRotation(Target.transform.position - ActionCamera.position), .5f), Time.deltaTime * 5f);
         }
 
+        // Movement
         Vector3 InputVec = new Vector3(InputController.Value.x, 0, InputController.Value.y);
-
         if (cc.isGrounded) {
             moveDir = InputVec;
-            moveDir = CamHolder.TransformDirection(moveDir);
+            if (Targetting)
+                moveDir = PlayerAnim.transform.TransformDirection(moveDir);
+            else
+                moveDir = CamHolder.TransformDirection(moveDir);
             moveDir *= RunSpeed;
         }
-        if(moveDir != Vector3.zero) {
-            PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 5f);
+        
+        if (Targetting) {
+            Vector3 dir = Target.transform.position - transform.position;
+            dir.y = 0;
+            PlayerAnim.transform.rotation = Quaternion.LookRotation(dir);
+            CamHolder.transform.rotation = PlayerAnim.transform.rotation;
+            PlayerAnim.SetFloat("velocity_x", Mathf.Lerp(PlayerAnim.GetFloat("velocity_x"), InputVec.x, Time.deltaTime * 5f));
+            PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.z, Time.deltaTime * 5f));
+
+            Vector3 p = ActionCamera.localPosition;
+            Vector3 r = ActionCamera.localEulerAngles;
+            if (InputVec.x < 0) {
+                p.x = -1 * Mathf.Abs(p.x);
+                r.y = 21;
+            } else if (InputVec.x > 0) {
+                p.x = Mathf.Abs(p.x);
+                r.y = 339;
+            }
+            ActionCamera.localPosition = p;
+            ActionCamera.localEulerAngles = r;
+        } else {
+            if (moveDir != Vector3.zero) {
+                PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 5f);
+            }
+            PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.magnitude, Time.deltaTime * 5f));
         }
-        PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.magnitude, Time.deltaTime * 5f));
         moveDir.y -= Gravity * Time.deltaTime;
         cc.Move(moveDir * Time.deltaTime);
 
+
+        // Player character look direction TODO: use Vector3.Dot
         float lookdist = CamHolder.eulerAngles.y - PlayerAnim.transform.eulerAngles.y;
         if (Mathf.Abs(lookdist) < 90f) {
             sideLook = lookdist / 90f;
         } else {
             sideLook = 0;
         }
-
         // Points of Interest
-
         if (Tick % 20 == 0) {
             Interest = FindBestInterest();
         }
-        if (Interest == null) {
+        if (Interest == null && !Targetting) {
             PlayerAnim.SetFloat("look_x", Mathf.Lerp(PlayerAnim.GetFloat("look_x"), sideLook, Time.deltaTime * 5f));
             PlayerAnim.SetFloat("look_z", Mathf.Lerp(PlayerAnim.GetFloat("look_z"), upLook, Time.deltaTime * 5f));
         } else {
-            Vector3 dirToInterest = (Interest.transform.position - Head.position).normalized;
+            Vector3 dirToInterest;
+            if (Targetting)
+                dirToInterest = (Target.transform.position - Head.position).normalized;
+            else
+                dirToInterest = (Interest.transform.position - Head.position).normalized;
             float dForward = Vector3.Dot(dirToInterest, Head.forward);
             if (dForward > 0) {
                 float slook = Vector3.Dot(dirToInterest, Head.right);
