@@ -44,6 +44,7 @@ public class MessageControl : MonoBehaviour {
             Destroy(gameObject, 1);
             Toolbox.Instance.InputControl.Enabled = true;
             Toolbox.Instance.Player.Interacting = false;
+            Toolbox.Instance.Player.ShowHealth = true;
         } else {
             nexttext.text = lines[currentLine + 1];
             anim.SetTrigger("change");

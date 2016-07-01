@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : Entity {
 
     private CharacterController cc;
     private Camera mainCam;
@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour {
 
     private Vector3 interactPos = Vector3.zero;
     private Quaternion interactRot = Quaternion.identity;
+
+    private Animator PlayerHealthBar;
 
     public PointOfInterest Interest = null;
 
@@ -69,6 +71,14 @@ public class PlayerControl : MonoBehaviour {
             TurningController.enabled = value;
         }
     }
+    public bool ShowHealth {
+        get {
+            return PlayerHealthBar.GetBool("showing");
+        }
+        set {
+            PlayerHealthBar.SetBool("showing", value);
+        }
+    }
 
     private Transform interestDir = null;
 
@@ -89,6 +99,8 @@ public class PlayerControl : MonoBehaviour {
         if (TurningController == null) {
             throw (new System.Exception("Player Control MUST have TurningController linked!"));
         }
+        PlayerAnim.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y);
+        PlayerHealthBar = GameObject.Find("PlayerHealth").GetComponent<Animator>();
 	}
     void Awake () {
         inputControlBase = FindObjectOfType<InputControlBase>();

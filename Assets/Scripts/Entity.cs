@@ -8,10 +8,10 @@ public class Entity : MonoBehaviour {
 
     public string Level {
         get {
-            return "lvl " + skillLevel.ToString(); 
+            return "lvl " + SkillLevel.ToString(); 
         }
     }
-    private int skillLevel;
+    public int SkillLevel;
 
     public EntityHealth Health {
         get {

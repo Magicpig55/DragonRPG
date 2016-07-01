@@ -22,6 +22,7 @@ public class Toolbox : Singleton<Toolbox> {
 
     public void ShowMessage(string message, PointOfInterest p = null, bool Focus = false) {
         InputControl.Enabled = false;
+        Player.ShowHealth = false;
         if (p != null) Player.Interest = p;
         if (Focus) Player.Interacting = true;
         GameObject newMsg = Instantiate(MessagePrefab) as GameObject;

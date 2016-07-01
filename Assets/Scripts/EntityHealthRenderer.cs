@@ -17,6 +17,7 @@ public class EntityHealthRenderer : MonoBehaviour {
     private Text hpText;
 
     private GameObject Healthbar;
+    private RectTransform HealthbarRect;
 
     private GameObject entityHealthPrefab;
 
@@ -29,6 +30,7 @@ public class EntityHealthRenderer : MonoBehaviour {
         entityHealthPrefab = Resources.Load("prefabs/ui/EnemyHealthbar") as GameObject;
         Healthbar = Instantiate(entityHealthPrefab) as GameObject;
         Healthbar.transform.SetParent(transform, false);
+        HealthbarRect = Healthbar.GetComponent<RectTransform>();
         hpBar = Healthbar.transform.Find("Healthbar").gameObject.GetComponent<RectTransform>();
         hpText = Healthbar.GetComponentInChildren<Text>();
 
@@ -37,14 +39,12 @@ public class EntityHealthRenderer : MonoBehaviour {
 
         hpText.text = string.Format(NAME_DISPLAY_FORMAT, entity.DispName, entity.Level);
 
-        hpBarBase = hpBar.rect.width;
-
         mainCam = Camera.main;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        hpBar.sizeDelta = Vector2.Lerp(hpBar.sizeDelta, new Vector2(hpBarBase * entityHealth.Percentage, -50), Time.deltaTime * 5f);
+        hpBar.sizeDelta = Vector2.Lerp(hpBar.sizeDelta, new Vector2(HealthbarRect.rect.width * entityHealth.Percentage, HealthbarRect.rect.height * (-5f / 6f)), Time.deltaTime * 5f);
         Healthbar.transform.forward = mainCam.transform.forward;
         Healthbar.transform.localPosition = HPBarOffset;
     }
