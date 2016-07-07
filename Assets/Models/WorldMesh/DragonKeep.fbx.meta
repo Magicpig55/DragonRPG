@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 6f3712afa83fedc48ae76edaf0c8b399
+timeCreated: 1467816424
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: DragonKeep.Base
+    100004: DragonKeep.Center
+    100006: DragonKeep.Inner.NE
+    100008: DragonKeep.Inner.NW
+    100010: DragonKeep.Inner.Road.E
+    100012: DragonKeep.Inner.Road.N
+    100014: DragonKeep.Inner.Road.S
+    100016: DragonKeep.Inner.Road.W
+    100018: DragonKeep.Inner.SE
+    100020: DragonKeep.Inner.SW
+    100022: DragonKeep.Keep
+    100024: DragonKeep.Mid.NE
+    100026: DragonKeep.Mid.NW
+    100028: DragonKeep.Mid.Road.E
+    100030: DragonKeep.Mid.Road.S
+    100032: DragonKeep.Mid.Road.W
+    100034: DragonKeep.Mid.SE
+    100036: DragonKeep.Mid.SW
+    100038: DragonKeep.Outer.NE
+    100040: DragonKeep.Outer.NW
+    100042: DragonKeep.Outer.Road.E
+    100044: DragonKeep.Outer.Road.W
+    100046: DragonKeep.Outer.SE
+    100048: DragonKeep.Outer.SW
+    100050: DragonKeep.Port
+    400000: //RootNode
+    400002: DragonKeep.Base
+    400004: DragonKeep.Center
+    400006: DragonKeep.Inner.NE
+    400008: DragonKeep.Inner.NW
+    400010: DragonKeep.Inner.Road.E
+    400012: DragonKeep.Inner.Road.N
+    400014: DragonKeep.Inner.Road.S
+    400016: DragonKeep.Inner.Road.W
+    400018: DragonKeep.Inner.SE
+    400020: DragonKeep.Inner.SW
+    400022: DragonKeep.Keep
+    400024: DragonKeep.Mid.NE
+    400026: DragonKeep.Mid.NW
+    400028: DragonKeep.Mid.Road.E
+    400030: DragonKeep.Mid.Road.S
+    400032: DragonKeep.Mid.Road.W
+    400034: DragonKeep.Mid.SE
+    400036: DragonKeep.Mid.SW
+    400038: DragonKeep.Outer.NE
+    400040: DragonKeep.Outer.NW
+    400042: DragonKeep.Outer.Road.E
+    400044: DragonKeep.Outer.Road.W
+    400046: DragonKeep.Outer.SE
+    400048: DragonKeep.Outer.SW
+    400050: DragonKeep.Port
+    2300000: DragonKeep.Base
+    2300002: DragonKeep.Center
+    2300004: DragonKeep.Inner.NE
+    2300006: DragonKeep.Inner.NW
+    2300008: DragonKeep.Inner.Road.E
+    2300010: DragonKeep.Inner.Road.N
+    2300012: DragonKeep.Inner.Road.S
+    2300014: DragonKeep.Inner.Road.W
+    2300016: DragonKeep.Inner.SE
+    2300018: DragonKeep.Inner.SW
+    2300020: DragonKeep.Keep
+    2300022: DragonKeep.Mid.NE
+    2300024: DragonKeep.Mid.NW
+    2300026: DragonKeep.Mid.Road.E
+    2300028: DragonKeep.Mid.Road.S
+    2300030: DragonKeep.Mid.Road.W
+    2300032: DragonKeep.Mid.SE
+    2300034: DragonKeep.Mid.SW
+    2300036: DragonKeep.Outer.NE
+    2300038: DragonKeep.Outer.NW
+    2300040: DragonKeep.Outer.Road.E
+    2300042: DragonKeep.Outer.Road.W
+    2300044: DragonKeep.Outer.SE
+    2300046: DragonKeep.Outer.SW
+    2300048: DragonKeep.Port
+    3300000: DragonKeep.Base
+    3300002: DragonKeep.Center
+    3300004: DragonKeep.Inner.NE
+    3300006: DragonKeep.Inner.NW
+    3300008: DragonKeep.Inner.Road.E
+    3300010: DragonKeep.Inner.Road.N
+    3300012: DragonKeep.Inner.Road.S
+    3300014: DragonKeep.Inner.Road.W
+    3300016: DragonKeep.Inner.SE
+    3300018: DragonKeep.Inner.SW
+    3300020: DragonKeep.Keep
+    3300022: DragonKeep.Mid.NE
+    3300024: DragonKeep.Mid.NW
+    3300026: DragonKeep.Mid.Road.E
+    3300028: DragonKeep.Mid.Road.S
+    3300030: DragonKeep.Mid.Road.W
+    3300032: DragonKeep.Mid.SE
+    3300034: DragonKeep.Mid.SW
+    3300036: DragonKeep.Outer.NE
+    3300038: DragonKeep.Outer.NW
+    3300040: DragonKeep.Outer.Road.E
+    3300042: DragonKeep.Outer.Road.W
+    3300044: DragonKeep.Outer.SE
+    3300046: DragonKeep.Outer.SW
+    3300048: DragonKeep.Port
+    4300000: DragonKeep.Base
+    4300002: DragonKeep.Center
+    4300004: DragonKeep.Inner.Road.E
+    4300006: DragonKeep.Inner.SE
+    4300008: DragonKeep.Inner.Road.S
+    4300010: DragonKeep.Inner.SW
+    4300012: DragonKeep.Inner.Road.W
+    4300014: DragonKeep.Inner.NW
+    4300016: DragonKeep.Inner.Road.N
+    4300018: DragonKeep.Inner.NE
+    4300020: DragonKeep.Mid.Road.E
+    4300022: DragonKeep.Mid.SE
+    4300024: DragonKeep.Mid.Road.S
+    4300026: DragonKeep.Mid.SW
+    4300028: DragonKeep.Mid.Road.W
+    4300030: DragonKeep.Mid.NW
+    4300032: DragonKeep.Mid.NE
+    4300034: DragonKeep.Outer.NE
+    4300036: DragonKeep.Outer.Road.E
+    4300038: DragonKeep.Outer.SE
+    4300040: DragonKeep.Port
+    4300042: DragonKeep.Outer.SW
+    4300044: DragonKeep.Outer.Road.W
+    4300046: DragonKeep.Outer.NW
+    4300048: DragonKeep.Keep
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -206,6 +206,10 @@ ModelImporter:
     7400034: Armature|Strafe.L
     7400036: Armature|Strafe.R
     7400038: Armature|Walk
+    7400040: RunBack
+    7400042: RunBack.001
+    7400044: mouth_open
+    7400046: mouth_close
     9500000: //RootNode
     13700000: Cube
     13700002: Cylinder
@@ -218,7 +222,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleRotations: 1
-    optimizeGameObjects: 1
+    optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -229,7 +233,8 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw
     clipAnimations:
     - serializedVersion: 16
       name: Walk
@@ -2108,6 +2113,658 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/IKElbow.L
+        weight: 1
+      - path: Armature/IKElbow.L/IKElbow.L_end
+        weight: 1
+      - path: Armature/IKElbow.R
+        weight: 1
+      - path: Armature/IKElbow.R/IKElbow.R_end
+        weight: 1
+      - path: Armature/IKFoot.L
+        weight: 1
+      - path: Armature/IKFoot.L/IKFoot.L_end
+        weight: 1
+      - path: Armature/IKFoot.R
+        weight: 1
+      - path: Armature/IKFoot.R/IKFoot.R_end
+        weight: 1
+      - path: Armature/IKHand.L
+        weight: 1
+      - path: Armature/IKHand.L/IKHand.L_end
+        weight: 1
+      - path: Armature/IKHand.R
+        weight: 1
+      - path: Armature/IKHand.R/IKHand.R_end
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Belly
+        weight: 1
+      - path: Armature/Pelvis/Belly/Belly_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L/Foot.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R/Foot.004.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L/Eye.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R/Eye.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw/Jaw_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L/Index.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L/Middle.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L/Ring.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L/Thumb.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R/Index.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R/Middle.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R/Ring.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R/Thumb.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L/Wing.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R/Wing.002.R_end
+        weight: 1
+      - path: Armature/Pelvis/Tail.001
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002/Tail.002_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RunBack
+      takeName: RunBack
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Spine.001
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw/Jaw_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L/Eye.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R/Eye.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L/Thumb.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L/Index.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L/Middle.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L/Ring.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L/Wing.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R/Thumb.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R/Index.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R/Middle.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R/Ring.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R/Wing.002.R_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L/Foot.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Tail.001
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002/Tail.002_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R/Foot.004.R_end
+        weight: 1
+      - path: Armature/Pelvis/Belly
+        weight: 1
+      - path: Armature/Pelvis/Belly/Belly_end
+        weight: 1
+      - path: Armature/IKHand.R
+        weight: 1
+      - path: Armature/IKHand.R/IKHand.R_end
+        weight: 1
+      - path: Armature/IKHand.L
+        weight: 1
+      - path: Armature/IKHand.L/IKHand.L_end
+        weight: 1
+      - path: Armature/IKFoot.L
+        weight: 1
+      - path: Armature/IKFoot.L/IKFoot.L_end
+        weight: 1
+      - path: Armature/IKFoot.R
+        weight: 1
+      - path: Armature/IKFoot.R/IKFoot.R_end
+        weight: 1
+      - path: Armature/IKElbow.R
+        weight: 1
+      - path: Armature/IKElbow.R/IKElbow.R_end
+        weight: 1
+      - path: Armature/IKElbow.L
+        weight: 1
+      - path: Armature/IKElbow.L/IKElbow.L_end
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: mouth_open
+      takeName: mouth_open
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves:
+      - name: Mouth.CurlBack
+        curve:
+          serializedVersion: 2
+          curve:
+          - time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          preInfinity: 3
+          postInfinity: 3
+          rotationOrder: 0
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/IKElbow.L
+        weight: 1
+      - path: Armature/IKElbow.L/IKElbow.L_end
+        weight: 1
+      - path: Armature/IKElbow.R
+        weight: 1
+      - path: Armature/IKElbow.R/IKElbow.R_end
+        weight: 1
+      - path: Armature/IKFoot.L
+        weight: 1
+      - path: Armature/IKFoot.L/IKFoot.L_end
+        weight: 1
+      - path: Armature/IKFoot.R
+        weight: 1
+      - path: Armature/IKFoot.R/IKFoot.R_end
+        weight: 1
+      - path: Armature/IKHand.L
+        weight: 1
+      - path: Armature/IKHand.L/IKHand.L_end
+        weight: 1
+      - path: Armature/IKHand.R
+        weight: 1
+      - path: Armature/IKHand.R/IKHand.R_end
+        weight: 1
+      - path: Armature/Pelvis
+        weight: 1
+      - path: Armature/Pelvis/Belly
+        weight: 1
+      - path: Armature/Pelvis/Belly/Belly_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L
+        weight: 1
+      - path: Armature/Pelvis/Leg.001.L/Leg.002.L/Foot.001.L/Foot.002.L/Foot.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R
+        weight: 1
+      - path: Armature/Pelvis/Leg.003.R/Leg.004.R/Foot.003.R/Foot.004.R/Foot.004.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.L/Eye.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Eye.R/Eye.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Neck/Head/Jaw/Jaw_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Index.001.L/Index.002.L/Index.003.L/Index.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Middle.001.L/Middle.002.L/Middle.003.L/Middle.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Ring.001.L/Ring.002.L/Ring.003.L/Ring.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.L/Arm.001.L/Arm.002.L/Hand.L/Thumb.001.L/Thumb.002.L/Thumb.003.L/Thumb.003.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Index.004.R/Index.005.R/Index.006.R/Index.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Middle.004.R/Middle.005.R/Middle.006.R/Middle.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Ring.004.R/Ring.005.R/Ring.006.R/Ring.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Shoulder.R/Arm.001.R/Arm.002.R/Hand.R/Thumb.004.R/Thumb.005.R/Thumb.006.R/Thumb.006.R_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.L/Wing.002.L/Wing.002.L_end
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R
+        weight: 1
+      - path: Armature/Pelvis/Spine.001/Spine.002/Wing.001.R/Wing.002.R/Wing.002.R_end
+        weight: 1
+      - path: Armature/Pelvis/Tail.001
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002
+        weight: 1
+      - path: Armature/Pelvis/Tail.001/Tail.002/Tail.002_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: mouth_close
+      takeName: mouth_close
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves:
+      - name: Mouth.CurlBack
+        curve:
+          serializedVersion: 2
+          curve:
+          - time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          preInfinity: 3
+          postInfinity: 3
+          rotationOrder: 0
       events: []
       transformMask:
       - path: 
