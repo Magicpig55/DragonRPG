@@ -10,28 +10,19 @@ public class EntityHealthRenderer : MonoBehaviour {
 
     private EntityHealth entityHealth;
     private Entity entity;
-
-    private RectTransform hpBar;
-    private float hpBarBase;
-
     private Text hpText;
-
-    private GameObject Healthbar;
-    private RectTransform HealthbarRect;
-
+    public GameObject Healthbar;
     private GameObject entityHealthPrefab;
-
+    private Animator HealthbarAnimator;
     private Camera mainCam;
-
     public Vector3 HPBarOffset = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
         entityHealthPrefab = Resources.Load("prefabs/ui/EnemyHealthbar") as GameObject;
         Healthbar = Instantiate(entityHealthPrefab) as GameObject;
+        HealthbarAnimator = Healthbar.GetComponent<Animator>();
         Healthbar.transform.SetParent(transform, false);
-        HealthbarRect = Healthbar.GetComponent<RectTransform>();
-        hpBar = Healthbar.transform.Find("Healthbar").gameObject.GetComponent<RectTransform>();
         hpText = Healthbar.GetComponentInChildren<Text>();
 
         entityHealth = GetComponent<EntityHealth>();
@@ -44,8 +35,9 @@ public class EntityHealthRenderer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        hpBar.sizeDelta = Vector2.Lerp(hpBar.sizeDelta, new Vector2(HealthbarRect.rect.width * entityHealth.Percentage, HealthbarRect.rect.height * (-5f / 6f)), Time.deltaTime * 5f);
         Healthbar.transform.forward = mainCam.transform.forward;
         Healthbar.transform.localPosition = HPBarOffset;
+        HealthbarAnimator.SetFloat("hp_percentage", Mathf.Lerp(HealthbarAnimator.GetFloat("hp_percentage"), entityHealth.Percentage, Time.deltaTime * 3f));
+        HealthbarAnimator.SetFloat("hp_percInv", Mathf.Lerp(3f, 1f, Mathf.Clamp01(entityHealth.Percentage * 4f)));
     }
 }

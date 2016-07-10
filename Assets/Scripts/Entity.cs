@@ -6,6 +6,8 @@ public class Entity : MonoBehaviour {
     // Name for use in display
     public string DispName;
 
+    private Animator hpAnimator;
+
     public string Level {
         get {
             return "lvl " + SkillLevel.ToString(); 
@@ -29,6 +31,10 @@ public class Entity : MonoBehaviour {
         _health = GetComponent<EntityHealth>();
     }
 
+    public void AttemptDamage(DamageSource source) {
+        DoDamage(source);
+    }
+
     // Stuff like death animations and such will go here
     protected virtual void Die(DamageSource source) {
 
@@ -41,6 +47,11 @@ public class Entity : MonoBehaviour {
         if(HasHealth) {
             TakeDamage(source);
             Health.Health -= source.Damage; // Do some testing here, check if side effects work
+
+            if(hpAnimator == null) {
+                hpAnimator = GetComponent<EntityHealthRenderer>().Healthbar.GetComponent<Animator>();
+            }
+            hpAnimator.SetTrigger("blink");
         }
     }
 

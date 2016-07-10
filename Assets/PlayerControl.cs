@@ -35,6 +35,8 @@ public class PlayerControl : Entity {
 
     public PointOfInterest Interest = null;
 
+    private bool Attacking = false;
+
     public bool Interacting {
         get {
             return _interacting;
@@ -124,6 +126,7 @@ public class PlayerControl : Entity {
         }
         PlayerAnim.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y);
         PlayerHealthBar = GameObject.Find("PlayerHealth").GetComponent<Animator>();
+        TurningInput.Swipe += SwipeEvent;
 	}
     void Awake () {
         inputControlBase = FindObjectOfType<InputControlBase>();
@@ -156,43 +159,45 @@ public class PlayerControl : Entity {
         }
 
         // Movement
-        Vector3 InputVec = new Vector3(InputController.Value.x, 0, InputController.Value.y);
-        if (cc.isGrounded) {
-            moveDir = InputVec;
-            if (Targetting)
-                moveDir = PlayerAnim.transform.TransformDirection(moveDir);
-            else
-                moveDir = CamHolder.TransformDirection(moveDir);
-            moveDir *= RunSpeed;
-        }
-        
-        if (Targetting) {
-            Vector3 dir = Target.transform.position - transform.position;
-            dir.y = 0;
-            PlayerAnim.transform.rotation = Quaternion.LookRotation(dir);
-            CamHolder.transform.rotation = PlayerAnim.transform.rotation;
-            PlayerAnim.SetFloat("velocity_x", Mathf.Lerp(PlayerAnim.GetFloat("velocity_x"), InputVec.x, Time.deltaTime * 5f));
-            PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.z, Time.deltaTime * 5f));
+        if (!Attacking) {
+            Vector3 InputVec = new Vector3(InputController.Value.x, 0, InputController.Value.y);
+            if (cc.isGrounded) {
+                moveDir = InputVec;
+                if (Targetting)
+                    moveDir = PlayerAnim.transform.TransformDirection(moveDir);
+                else
+                    moveDir = CamHolder.TransformDirection(moveDir);
+                moveDir *= RunSpeed;
+            }
 
-            Vector3 p = ActionCamera.localPosition;
-            Vector3 r = ActionCamera.localEulerAngles;
-            if (InputVec.x < 0) {
-                p.x = -1 * Mathf.Abs(p.x);
-                r.y = 21;
-            } else if (InputVec.x > 0) {
-                p.x = Mathf.Abs(p.x);
-                r.y = 339;
+            if (Targetting) {
+                Vector3 dir = Target.transform.position - transform.position;
+                dir.y = 0;
+                PlayerAnim.transform.rotation = Quaternion.LookRotation(dir);
+                CamHolder.transform.rotation = PlayerAnim.transform.rotation;
+                PlayerAnim.SetFloat("velocity_x", Mathf.Lerp(PlayerAnim.GetFloat("velocity_x"), InputVec.x, Time.deltaTime * 5f));
+                PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.z, Time.deltaTime * 5f));
+
+                Vector3 p = ActionCamera.localPosition;
+                Vector3 r = ActionCamera.localEulerAngles;
+                if (InputVec.x < 0) {
+                    p.x = -1 * Mathf.Abs(p.x);
+                    r.y = 21;
+                } else if (InputVec.x > 0) {
+                    p.x = Mathf.Abs(p.x);
+                    r.y = 339;
+                }
+                ActionCamera.localPosition = p;
+                ActionCamera.localEulerAngles = r;
+            } else {
+                if (moveDir != Vector3.zero) {
+                    PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 5f);
+                }
+                PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.magnitude, Time.deltaTime * 5f));
             }
-            ActionCamera.localPosition = p;
-            ActionCamera.localEulerAngles = r;
-        } else {
-            if (moveDir != Vector3.zero) {
-                PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 5f);
-            }
-            PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.magnitude, Time.deltaTime * 5f));
+            moveDir.y -= Gravity * Time.deltaTime;
+            cc.Move(moveDir * Time.deltaTime);
         }
-        moveDir.y -= Gravity * Time.deltaTime;
-        cc.Move(moveDir * Time.deltaTime);
 
 
         // Player character look direction TODO: use Vector3.Dot
@@ -232,6 +237,21 @@ public class PlayerControl : Entity {
         }
 
         Tick++;
+    }
+
+    private void SwipeEvent(TurningInput.SwipeDirection direction) {
+        if (Targetting) {
+            Attacking = true;
+            switch (direction) {
+                case TurningInput.SwipeDirection.Up: PlayerAnim.SetTrigger("swing_up"); break;
+                case TurningInput.SwipeDirection.Down: PlayerAnim.SetTrigger("swing_down"); break;
+                case TurningInput.SwipeDirection.Left: PlayerAnim.SetTrigger("swing_left"); break;
+                case TurningInput.SwipeDirection.Right: PlayerAnim.SetTrigger("swing_right"); break;
+            }
+        }
+    }
+    public void DoneAttacking() {
+        Attacking = false;
     }
 
     private PointOfInterest FindBestInterest() {
