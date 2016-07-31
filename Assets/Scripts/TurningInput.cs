@@ -17,6 +17,8 @@ public class TurningInput : MonoBehaviour {
     private float wscale;
     private float hscale;
 
+    public bool Disabled = false;
+
     public enum SwipeDirection {
         Up, Right, Down, Left
     }
@@ -42,7 +44,7 @@ public class TurningInput : MonoBehaviour {
         Value = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 
-        if (!eventSystem.alreadySelecting) {
+        if (!eventSystem.alreadySelecting && !Disabled) {
             for (int i = 0; i < Input.touchCount; i++) {
                 Touch touch = Input.GetTouch(i);
                 if (touch.phase == TouchPhase.Began) {

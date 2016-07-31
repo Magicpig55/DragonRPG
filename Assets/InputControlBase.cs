@@ -8,6 +8,7 @@ public class InputControlBase : MonoBehaviour {
         }
         set {
             _enabled = value;
+            turningInput.Disabled = !_enabled;
             foreach(Animator child in Children) {
                 child.SetBool("enabled", _enabled);
             }
@@ -15,9 +16,18 @@ public class InputControlBase : MonoBehaviour {
     }
     private bool _enabled = true;
 
+    private TurningInput turningInput;
+
     private Animator[] Children;
 
-    void Start() {
+    public void DisableTurningInput() {
+        turningInput.Disabled = true;
+    }
+    public void EnableTurningInput() {
+        turningInput.Disabled = false;
+    }
+    void Awake() {
+        turningInput = GetComponentInChildren<TurningInput>();
         Children = GetComponentsInChildren<Animator>();
     }
 }

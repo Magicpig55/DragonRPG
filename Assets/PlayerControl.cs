@@ -169,7 +169,6 @@ public class PlayerControl : Entity {
                     moveDir = CamHolder.TransformDirection(moveDir);
                 moveDir *= RunSpeed;
             }
-
             if (Targetting) {
                 Vector3 dir = Target.transform.position - transform.position;
                 dir.y = 0;
@@ -190,8 +189,10 @@ public class PlayerControl : Entity {
                 ActionCamera.localPosition = p;
                 ActionCamera.localEulerAngles = r;
             } else {
-                if (moveDir != Vector3.zero) {
-                    PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(moveDir), Time.deltaTime * 5f);
+                Vector3 tv = new Vector3(moveDir.x, 0, moveDir.z);
+                if (tv != Vector3.zero) {
+                    print(moveDir);
+                    PlayerAnim.transform.rotation = Quaternion.Slerp(PlayerAnim.transform.rotation, Quaternion.LookRotation(tv), Time.deltaTime * 5f);
                 }
                 PlayerAnim.SetFloat("velocity_z", Mathf.Lerp(PlayerAnim.GetFloat("velocity_z"), InputVec.magnitude, Time.deltaTime * 5f));
             }

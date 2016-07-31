@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Targettable : MonoBehaviour {
     void OnMouseDown() {
-        if (Toolbox.Instance.Player.Targetting) {
-            Toolbox.Instance.Player.Targetting = false;
+        if (Toolbox.Player.Targetting) {
+            Toolbox.Player.Targetting = false;
         } else {
-            Toolbox.Instance.Player.Target = this;
+            Toolbox.Player.Target = this;
         }
     }
 }
