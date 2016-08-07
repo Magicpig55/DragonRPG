@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 [RequireComponent(typeof(Button))]
@@ -28,6 +29,15 @@ public class MessageControl : MonoBehaviour {
     private int currentLine;
     private int currentChar;
 
+    private LabelLocation ReadLocation {
+        set {
+            currentLine = value.Line;
+            currentChar = value.Char;
+            locChanged = true;
+        }
+    }
+    private bool locChanged = false;
+
     private float waitTime = 0.0f;
     private float timer = 0.0f;
 
@@ -47,6 +57,21 @@ public class MessageControl : MonoBehaviour {
     private bool complete = false;
     private bool waitingForAnim = false;
     private bool persist = false;
+
+    public struct LabelLocation {
+        public int Line;
+        public int Char;
+        public LabelLocation(int line, int car) {
+            Line = line;
+            Char = car;
+        }
+        public override string ToString() {
+            return string.Format("{0} {1}", Line, Char);
+        }
+    }
+
+    private bool foundLabels = false;
+    private Dictionary<string, LabelLocation> labels = new Dictionary<string, LabelLocation>();
 
     private string dispText {
         get {
@@ -74,8 +99,21 @@ public class MessageControl : MonoBehaviour {
 	}
 
     void Update () {
+        if(!foundLabels) {
+            for (int i = 0; i < lines.Length; i++) {
+                string line = lines[i];
+                if(line.Contains("<label:")) {
+                    string t = line.Substring(line.IndexOf("<label:"));
+                    string lbl = t.Substring(t.IndexOf(':') + 1, t.IndexOf('>') - t.IndexOf(':'));
+                    lbl = lbl.Substring(0, lbl.Length - 1);
+                    labels.Add(lbl, new LabelLocation(i, line.IndexOf("<label:") + t.IndexOf('>') + 1));
+                }
+            }
+            foundLabels = true;
+        }
         if (!waitingForInput && !waitingForAnim) {
             timer += Time.deltaTime;
+            locChanged = false;
             if (timer >= waitTime) {
                 if (currentChar >= currentText.Length) {
                     if (noWait) {
@@ -99,28 +137,49 @@ public class MessageControl : MonoBehaviour {
                     if (c == '<') {
                         string s = currentText.Substring(currentChar);
                         string q = s.Substring(1, s.IndexOf(">") - 1);
-                        print(q);
-                        if (q.StartsWith("wait")) {
-                            float i;
-                            string st = q.Substring(q.IndexOf(':') + 1);
-                            float.TryParse(st, out i);
-                            waitTime = i;
+                        string keyword;
+                        string[] arguments = new string[2];
+                        if (q.Contains(":")) {
+                            string[] t = q.Split(':');
+                            keyword = t[0];
+                            Array.Copy(t, 1, arguments, 0, t.Length - 1);
                         } else {
-                            switch (q) {
-                                case "inputwait": waitingForInput = true; break;
-                                case "noskip": noSkip = true; break;
-                                case "/noskip": noSkip = false; break;
-                                case "slow": slowMode = true; break;
-                                case "/slow": slowMode = false; break;
-                                case "dontwait": noWait = true; break;
-                                case "/dontwait": noWait = false; break;
-                                case "persist": persist = true; break;
-                                case "/persist": persist = false; break;
-                            }
-                            waitTime = slowMode ? slowModeWait : textDispDelay;
+                            keyword = q;
                         }
+                        switch (keyword) {
+                            case "inputwait": waitingForInput = true; break;
+                            case "noskip": noSkip = true; break;
+                            case "/noskip": noSkip = false; break;
+                            case "slow": slowMode = true; break;
+                            case "/slow": slowMode = false; break;
+                            case "dontwait": noWait = true; break;
+                            case "/dontwait": noWait = false; break;
+                            case "persist": persist = true; break;
+                            case "/persist": persist = false; break;
+                            case "clear":
+                                waitingForAnim = true;
+                                anim.SetTrigger("change");
+                                break;
+                            case "close":
+                                anim.SetTrigger("close");
+                                Destroy(gameObject, 1);
+                                Toolbox.InputControl.enabled = true;
+                                Toolbox.Player.Interacting = false;
+                                Toolbox.Player.ShowHealth = true;
+                                break;
+                            case "wait":
+                                float i;
+                                float.TryParse(arguments[0], out i);
+                                waitTime = i;
+                                break;
+                            case "goto":
+                                ReadLocation = labels[arguments[0]];
+                                break;
+                        }
+                        waitTime = slowMode ? slowModeWait : textDispDelay;
                         timer = 0;
-                        currentChar += s.IndexOf(">") + 1;
+                        if (!locChanged)
+                            currentChar += s.IndexOf(">") + 1;
                     } else {
                         dispText += c;
                         waitTime = slowMode ? slowModeWait : textDispDelay;
